@@ -62,7 +62,6 @@ public:
 
         _socket = new TCPSocket();
         ((TCPSocket*)_socket)->open(network);
-        _we_created_socket = true;
     }
 
     /**
@@ -83,8 +82,6 @@ public:
 
         _parsed_url = new ParsedUrl(url);
         _request_builder = new HttpRequestBuilder(method, _parsed_url);
-
-        _we_created_socket = false;
     }
 
     virtual ~HttpRequest() {
