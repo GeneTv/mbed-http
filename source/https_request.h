@@ -59,7 +59,6 @@ public:
         _socket = new TLSSocket();
         ((TLSSocket*)_socket)->open(network);
         ((TLSSocket*)_socket)->set_root_ca_cert(ssl_ca_pem);
-        _we_created_socket = true;
     }
 
     /**
@@ -83,8 +82,6 @@ public:
         _body_callback = body_callback;
         _request_builder = new HttpRequestBuilder(method, _parsed_url);
         _response = NULL;
-
-        _we_created_socket = false;
     }
 
     virtual ~HttpsRequest() {}
